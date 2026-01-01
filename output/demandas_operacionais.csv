@@ -1,0 +1,37 @@
+id;data_abertura;data_fechamento;status;tipo;prioridade;sla_dias;responsavel;area
+1;2024-01-03;2024-01-04;Concluído;Incidente;Alta;2;Equipe A;Suporte
+2;2024-01-05;2024-01-09;Concluído;Solicitação;Média;5;Equipe B;Operações
+3;2024-01-08;;Em andamento;Melhoria;Baixa;10;Equipe A;Produto
+4;2024-01-10;2024-01-11;Concluído;Incidente;Alta;2;Equipe C;Suporte
+5;2024-01-12;2024-01-16;Concluído;Solicitação;Média;5;Equipe B;Financeiro
+6;2024-01-15;;Aberto;Solicitação;Baixa;7;Equipe A;Operações
+7;2024-01-18;2024-01-23;Concluído;Melhoria;Média;10;Equipe C;Produto
+8;2024-01-20;2024-01-21;Concluído;Incidente;Alta;2;Equipe A;Suporte
+9;2024-01-22;;Em andamento;Incidente;Alta;2;Equipe B;Suporte
+10;2024-01-25;2024-01-30;Concluído;Solicitação;Média;5;Equipe C;Operações
+11;2024-02-02;2024-02-03;Concluído;Incidente;Alta;2;Equipe A;Suporte
+12;2024-02-05;;Aberto;Melhoria;Baixa;10;Equipe B;Produto
+13;2024-02-07;2024-02-12;Concluído;Solicitação;Média;5;Equipe C;Operações
+14;2024-02-10;2024-02-10;Concluído;Incidente;Alta;2;Equipe A;Suporte
+15;2024-02-12;;Em andamento;Solicitação;Média;5;Equipe B;Financeiro
+16;2024-02-14;2024-02-20;Concluído;Melhoria;Baixa;10;Equipe C;Produto
+17;2024-02-18;2024-02-19;Concluído;Incidente;Alta;2;Equipe A;Suporte
+18;2024-02-20;;Aberto;Incidente;Alta;2;Equipe B;Suporte
+19;2024-02-23;2024-02-28;Concluído;Solicitação;Média;5;Equipe C;Operações
+20;2024-03-01;2024-03-02;Concluído;Incidente;Alta;2;Equipe A;Suporte
+21;2024-03-03;;Em andamento;Melhoria;Baixa;10;Equipe B;Produto
+22;2024-03-06;2024-03-10;Concluído;Solicitação;Média;5;Equipe C;Operações
+23;2024-03-08;2024-03-08;Concluído;Incidente;Alta;2;Equipe A;Suporte
+24;2024-03-12;;Aberto;Solicitação;Baixa;7;Equipe B;Operações
+25;2024-03-15;2024-03-22;Concluído;Melhoria;Média;10;Equipe C;Produto
+26;2024-03-18;2024-03-19;Concluído;Incidente;Alta;2;Equipe A;Suporte
+27;2024-03-20;;Em andamento;Incidente;Alta;2;Equipe B;Suporte
+28;2024-03-24;2024-03-29;Concluído;Solicitação;Média;5;Equipe C;Financeiro
+29;2024-04-02;2024-04-03;Concluído;Incidente;Alta;2;Equipe A;Suporte
+30;2024-04-05;;Aberto;Melhoria;Baixa;10;Equipe B;Produto
+31;2024-04-06;2024-04-12;Concluído;Solicitação;Média;5;Equipe C;Operações
+32;2024-04-10;2024-04-10;Concluído;Incidente;Alta;2;Equipe A;Suporte
+33;2024-04-12;;Em andamento;Solicitação;Média;5;Equipe B;Financeiro
+34;2024-04-15;2024-04-20;Concluído;Melhoria;Baixa;10;Equipe C;Produto
+35;2024-04-18;2024-04-19;Concluído;Incidente;Alta;2;Equipe A;Suporte
+36;2024-04-20;;Aberto;Incidente;Alta;2;Equipe B;Suporte

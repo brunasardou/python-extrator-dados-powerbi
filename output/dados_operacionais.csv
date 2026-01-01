@@ -1,0 +1,241 @@
+﻿id;data_abertura;status;tipo;tempo_resolucao;responsavel;sla_status
+198;2025-10-03;Em andamento;Solicitação;;Carlos;Em andamento
+5;2025-10-04;Concluído;Manutenção;56.0;Ana;Dentro do SLA
+147;2025-10-04;Em andamento;Solicitação;;Ana;Em andamento
+22;2025-10-04;Em andamento;Incidente;;João;Em andamento
+209;2025-10-05;Aberto;Incidente;;Fernanda;Em andamento
+29;2025-10-06;Aberto;Solicitação;;Fernanda;Em andamento
+143;2025-10-06;Aberto;Manutenção;;João;Em andamento
+27;2025-10-06;Em andamento;Solicitação;;Carlos;Em andamento
+202;2025-10-08;Em andamento;Manutenção;;João;Em andamento
+41;2025-10-08;Em andamento;Solicitação;;Fernanda;Em andamento
+92;2025-10-08;Aberto;Solicitação;;Fernanda;Em andamento
+175;2025-10-10;Concluído;Solicitação;38.0;Fernanda;Dentro do SLA
+61;2025-10-10;Em andamento;Solicitação;;Fernanda;Em andamento
+134;2025-10-10;Em andamento;Manutenção;;João;Em andamento
+180;2025-10-10;Em andamento;Manutenção;;Ana;Em andamento
+190;2025-10-10;Em andamento;Incidente;;João;Em andamento
+157;2025-10-11;Aberto;Incidente;;Ana;Em andamento
+197;2025-10-11;Concluído;Solicitação;104.0;João;Dentro do SLA
+139;2025-10-12;Em andamento;Manutenção;;Fernanda;Em andamento
+63;2025-10-14;Concluído;Incidente;14.0;Carlos;Dentro do SLA
+179;2025-10-14;Concluído;Solicitação;29.0;João;Dentro do SLA
+220;2025-10-14;Em andamento;Incidente;;Fernanda;Em andamento
+163;2025-10-14;Concluído;Incidente;132.0;Carlos;Fora do SLA
+71;2025-10-14;Concluído;Solicitação;77.0;Carlos;Dentro do SLA
+141;2025-10-15;Aberto;Incidente;;Carlos;Em andamento
+170;2025-10-15;Aberto;Manutenção;;Ana;Em andamento
+169;2025-10-15;Concluído;Solicitação;227.0;João;Fora do SLA
+90;2025-10-15;Em andamento;Incidente;;Carlos;Em andamento
+60;2025-10-15;Aberto;Incidente;;João;Em andamento
+149;2025-10-16;Em andamento;Solicitação;;João;Em andamento
+161;2025-10-16;Aberto;Incidente;;Fernanda;Em andamento
+94;2025-10-17;Em andamento;Manutenção;;Fernanda;Em andamento
+142;2025-10-17;Concluído;Manutenção;288.0;Ana;Fora do SLA
+28;2025-10-17;Aberto;Incidente;;Fernanda;Em andamento
+82;2025-10-17;Aberto;Incidente;;Carlos;Em andamento
+12;2025-10-18;Aberto;Incidente;;João;Em andamento
+32;2025-10-18;Aberto;Incidente;;Carlos;Em andamento
+159;2025-10-18;Concluído;Manutenção;13.0;Fernanda;Dentro do SLA
+62;2025-10-19;Em andamento;Incidente;;João;Em andamento
+19;2025-10-19;Concluído;Solicitação;289.0;Carlos;Fora do SLA
+208;2025-10-19;Em andamento;Solicitação;;João;Em andamento
+162;2025-10-19;Concluído;Manutenção;111.0;Ana;Dentro do SLA
+106;2025-10-19;Concluído;Solicitação;108.0;Carlos;Dentro do SLA
+93;2025-10-20;Concluído;Solicitação;299.0;Carlos;Fora do SLA
+225;2025-10-20;Em andamento;Solicitação;;Fernanda;Em andamento
+160;2025-10-21;Concluído;Incidente;168.0;Carlos;Fora do SLA
+127;2025-10-21;Em andamento;Manutenção;;Ana;Em andamento
+126;2025-10-22;Aberto;Manutenção;;João;Em andamento
+49;2025-10-23;Em andamento;Solicitação;;Ana;Em andamento
+124;2025-10-23;Em andamento;Manutenção;;Carlos;Em andamento
+96;2025-10-24;Em andamento;Manutenção;;João;Em andamento
+173;2025-10-24;Em andamento;Manutenção;;João;Em andamento
+195;2025-10-24;Aberto;Solicitação;;Ana;Em andamento
+232;2025-10-24;Aberto;Incidente;;João;Em andamento
+192;2025-10-24;Em andamento;Incidente;;Carlos;Em andamento
+80;2025-10-25;Aberto;Solicitação;;João;Em andamento
+122;2025-10-26;Aberto;Incidente;;João;Em andamento
+30;2025-10-26;Concluído;Solicitação;85.0;Fernanda;Dentro do SLA
+191;2025-10-27;Aberto;Manutenção;;Carlos;Em andamento
+128;2025-10-27;Concluído;Manutenção;77.0;Carlos;Dentro do SLA
+8;2025-10-28;Em andamento;Incidente;;Fernanda;Em andamento
+9;2025-10-28;Em andamento;Incidente;;Carlos;Em andamento
+99;2025-10-29;Concluído;Incidente;25.0;Carlos;Dentro do SLA
+58;2025-10-29;Concluído;Incidente;152.0;Carlos;Fora do SLA
+120;2025-10-29;Em andamento;Solicitação;;João;Em andamento
+188;2025-10-30;Aberto;Solicitação;;João;Em andamento
+132;2025-10-30;Em andamento;Manutenção;;Fernanda;Em andamento
+235;2025-10-30;Concluído;Incidente;169.0;Ana;Fora do SLA
+227;2025-10-31;Aberto;Manutenção;;Ana;Em andamento
+103;2025-10-31;Concluído;Solicitação;185.0;Carlos;Fora do SLA
+117;2025-10-31;Concluído;Incidente;112.0;Fernanda;Dentro do SLA
+119;2025-10-31;Concluído;Incidente;40.0;Carlos;Dentro do SLA
+101;2025-11-01;Aberto;Manutenção;;João;Em andamento
+52;2025-11-01;Em andamento;Incidente;;Ana;Em andamento
+69;2025-11-01;Aberto;Incidente;;Carlos;Em andamento
+199;2025-11-01;Concluído;Manutenção;169.0;João;Fora do SLA
+148;2025-11-01;Concluído;Solicitação;21.0;Carlos;Dentro do SLA
+53;2025-11-02;Concluído;Solicitação;208.0;Fernanda;Fora do SLA
+109;2025-11-02;Concluído;Incidente;184.0;Ana;Fora do SLA
+229;2025-11-02;Aberto;Solicitação;;João;Em andamento
+193;2025-11-03;Aberto;Solicitação;;João;Em andamento
+89;2025-11-03;Em andamento;Incidente;;Carlos;Em andamento
+88;2025-11-03;Em andamento;Solicitação;;Carlos;Em andamento
+213;2025-11-04;Em andamento;Solicitação;;Carlos;Em andamento
+70;2025-11-04;Em andamento;Solicitação;;Fernanda;Em andamento
+34;2025-11-04;Aberto;Manutenção;;Carlos;Em andamento
+107;2025-11-04;Aberto;Solicitação;;João;Em andamento
+184;2025-11-05;Em andamento;Solicitação;;Ana;Em andamento
+215;2025-11-05;Aberto;Solicitação;;Fernanda;Em andamento
+42;2025-11-06;Em andamento;Manutenção;;Carlos;Em andamento
+25;2025-11-06;Em andamento;Manutenção;;Carlos;Em andamento
+87;2025-11-06;Em andamento;Incidente;;Fernanda;Em andamento
+73;2025-11-06;Aberto;Solicitação;;João;Em andamento
+174;2025-11-07;Em andamento;Incidente;;João;Em andamento
+236;2025-11-07;Concluído;Solicitação;247.0;Ana;Fora do SLA
+240;2025-11-07;Aberto;Solicitação;;João;Em andamento
+43;2025-11-08;Concluído;Solicitação;165.0;Ana;Fora do SLA
+47;2025-11-09;Em andamento;Manutenção;;Fernanda;Em andamento
+172;2025-11-09;Concluído;Solicitação;113.0;Fernanda;Dentro do SLA
+212;2025-11-09;Aberto;Manutenção;;Ana;Em andamento
+221;2025-11-09;Aberto;Incidente;;Ana;Em andamento
+201;2025-11-09;Aberto;Incidente;;Fernanda;Em andamento
+150;2025-11-10;Em andamento;Incidente;;Fernanda;Em andamento
+219;2025-11-11;Em andamento;Manutenção;;Ana;Em andamento
+205;2025-11-12;Aberto;Solicitação;;Fernanda;Em andamento
+217;2025-11-12;Em andamento;Incidente;;Fernanda;Em andamento
+39;2025-11-13;Aberto;Solicitação;;Fernanda;Em andamento
+84;2025-11-13;Aberto;Manutenção;;Carlos;Em andamento
+233;2025-11-13;Aberto;Solicitação;;Carlos;Em andamento
+51;2025-11-14;Aberto;Manutenção;;Carlos;Em andamento
+13;2025-11-15;Aberto;Incidente;;Fernanda;Em andamento
+66;2025-11-16;Concluído;Solicitação;74.0;Fernanda;Dentro do SLA
+79;2025-11-16;Concluído;Incidente;288.0;Ana;Fora do SLA
+6;2025-11-16;Em andamento;Incidente;;Fernanda;Em andamento
+136;2025-11-16;Aberto;Incidente;;Carlos;Em andamento
+129;2025-11-17;Em andamento;Solicitação;;Carlos;Em andamento
+102;2025-11-17;Em andamento;Incidente;;Ana;Em andamento
+166;2025-11-17;Em andamento;Solicitação;;Carlos;Em andamento
+112;2025-11-17;Aberto;Incidente;;Ana;Em andamento
+115;2025-11-18;Aberto;Incidente;;João;Em andamento
+48;2025-11-18;Em andamento;Incidente;;Fernanda;Em andamento
+21;2025-11-18;Concluído;Manutenção;33.0;Fernanda;Dentro do SLA
+114;2025-11-19;Aberto;Manutenção;;João;Em andamento
+183;2025-11-19;Concluído;Solicitação;280.0;Carlos;Fora do SLA
+223;2025-11-19;Aberto;Solicitação;;Carlos;Em andamento
+40;2025-11-20;Em andamento;Incidente;;Fernanda;Em andamento
+72;2025-11-20;Concluído;Incidente;222.0;João;Fora do SLA
+238;2025-11-20;Em andamento;Solicitação;;Carlos;Em andamento
+85;2025-11-21;Aberto;Solicitação;;Carlos;Em andamento
+78;2025-11-21;Aberto;Incidente;;Carlos;Em andamento
+144;2025-11-22;Aberto;Incidente;;Ana;Em andamento
+55;2025-11-22;Em andamento;Manutenção;;Fernanda;Em andamento
+196;2025-11-23;Em andamento;Manutenção;;Carlos;Em andamento
+81;2025-11-23;Aberto;Manutenção;;Fernanda;Em andamento
+31;2025-11-24;Em andamento;Manutenção;;Carlos;Em andamento
+18;2025-11-25;Aberto;Manutenção;;Carlos;Em andamento
+135;2025-11-25;Em andamento;Manutenção;;João;Em andamento
+224;2025-11-25;Concluído;Incidente;290.0;Carlos;Fora do SLA
+44;2025-11-25;Aberto;Manutenção;;João;Em andamento
+185;2025-11-26;Em andamento;Solicitação;;Ana;Em andamento
+111;2025-11-26;Em andamento;Incidente;;Carlos;Em andamento
+214;2025-11-26;Aberto;Incidente;;Ana;Em andamento
+7;2025-11-26;Concluído;Incidente;106.0;João;Dentro do SLA
+83;2025-11-26;Aberto;Manutenção;;Ana;Em andamento
+46;2025-11-29;Em andamento;Manutenção;;Carlos;Em andamento
+158;2025-11-29;Aberto;Incidente;;Ana;Em andamento
+64;2025-11-29;Aberto;Solicitação;;Ana;Em andamento
+189;2025-11-29;Em andamento;Solicitação;;Ana;Em andamento
+204;2025-11-29;Concluído;Manutenção;222.0;Ana;Fora do SLA
+155;2025-11-30;Concluído;Manutenção;194.0;Fernanda;Fora do SLA
+65;2025-11-30;Aberto;Manutenção;;Ana;Em andamento
+181;2025-11-30;Aberto;Solicitação;;Carlos;Em andamento
+57;2025-12-01;Aberto;Manutenção;;Fernanda;Em andamento
+130;2025-12-01;Em andamento;Incidente;;João;Em andamento
+97;2025-12-01;Concluído;Manutenção;132.0;João;Fora do SLA
+230;2025-12-02;Em andamento;Manutenção;;Ana;Em andamento
+226;2025-12-02;Em andamento;Manutenção;;Fernanda;Em andamento
+200;2025-12-02;Em andamento;Incidente;;João;Em andamento
+118;2025-12-03;Concluído;Manutenção;194.0;Fernanda;Fora do SLA
+164;2025-12-04;Concluído;Incidente;270.0;Carlos;Fora do SLA
+36;2025-12-04;Aberto;Manutenção;;Fernanda;Em andamento
+116;2025-12-05;Concluído;Manutenção;58.0;Carlos;Dentro do SLA
+74;2025-12-06;Aberto;Manutenção;;João;Em andamento
+154;2025-12-06;Em andamento;Manutenção;;Ana;Em andamento
+35;2025-12-06;Concluído;Solicitação;294.0;João;Fora do SLA
+76;2025-12-06;Aberto;Manutenção;;Ana;Em andamento
+14;2025-12-06;Em andamento;Manutenção;;Carlos;Em andamento
+176;2025-12-07;Em andamento;Incidente;;Fernanda;Em andamento
+38;2025-12-08;Concluído;Incidente;56.0;Ana;Dentro do SLA
+234;2025-12-08;Concluído;Incidente;206.0;Fernanda;Fora do SLA
+167;2025-12-08;Aberto;Solicitação;;Ana;Em andamento
+218;2025-12-08;Em andamento;Manutenção;;Ana;Em andamento
+123;2025-12-09;Concluído;Solicitação;146.0;Ana;Fora do SLA
+67;2025-12-10;Concluído;Solicitação;185.0;Ana;Fora do SLA
+207;2025-12-10;Concluído;Solicitação;132.0;Ana;Fora do SLA
+4;2025-12-11;Aberto;Manutenção;;Fernanda;Em andamento
+153;2025-12-11;Aberto;Incidente;;João;Em andamento
+152;2025-12-11;Concluído;Solicitação;188.0;Carlos;Fora do SLA
+165;2025-12-12;Em andamento;Incidente;;Ana;Em andamento
+16;2025-12-13;Concluído;Incidente;271.0;Fernanda;Fora do SLA
+239;2025-12-13;Em andamento;Manutenção;;Fernanda;Em andamento
+50;2025-12-14;Aberto;Solicitação;;Ana;Em andamento
+17;2025-12-14;Concluído;Manutenção;202.0;João;Fora do SLA
+95;2025-12-14;Aberto;Incidente;;João;Em andamento
+56;2025-12-15;Em andamento;Incidente;;Fernanda;Em andamento
+121;2025-12-15;Em andamento;Incidente;;Carlos;Em andamento
+2;2025-12-15;Aberto;Solicitação;;Fernanda;Em andamento
+3;2025-12-16;Aberto;Manutenção;;Ana;Em andamento
+24;2025-12-16;Em andamento;Incidente;;Carlos;Em andamento
+138;2025-12-16;Concluído;Solicitação;32.0;João;Dentro do SLA
+15;2025-12-16;Concluído;Solicitação;231.0;João;Fora do SLA
+11;2025-12-16;Aberto;Incidente;;João;Em andamento
+228;2025-12-17;Em andamento;Incidente;;João;Em andamento
+20;2025-12-18;Aberto;Incidente;;João;Em andamento
+140;2025-12-19;Aberto;Manutenção;;João;Em andamento
+222;2025-12-19;Concluído;Solicitação;260.0;Fernanda;Fora do SLA
+91;2025-12-19;Concluído;Solicitação;132.0;Ana;Fora do SLA
+206;2025-12-20;Em andamento;Manutenção;;Carlos;Em andamento
+37;2025-12-20;Aberto;Manutenção;;Carlos;Em andamento
+237;2025-12-20;Aberto;Incidente;;João;Em andamento
+210;2025-12-21;Em andamento;Solicitação;;Fernanda;Em andamento
+1;2025-12-21;Aberto;Solicitação;;João;Em andamento
+26;2025-12-21;Aberto;Manutenção;;Ana;Em andamento
+171;2025-12-21;Aberto;Solicitação;;João;Em andamento
+203;2025-12-22;Em andamento;Incidente;;Carlos;Em andamento
+98;2025-12-22;Concluído;Solicitação;248.0;Ana;Fora do SLA
+125;2025-12-22;Aberto;Manutenção;;Ana;Em andamento
+168;2025-12-22;Aberto;Incidente;;Ana;Em andamento
+182;2025-12-23;Em andamento;Solicitação;;Fernanda;Em andamento
+186;2025-12-23;Em andamento;Incidente;;Carlos;Em andamento
+178;2025-12-24;Aberto;Solicitação;;Ana;Em andamento
+194;2025-12-24;Aberto;Incidente;;Ana;Em andamento
+105;2025-12-24;Concluído;Manutenção;106.0;Fernanda;Dentro do SLA
+108;2025-12-24;Aberto;Manutenção;;Carlos;Em andamento
+151;2025-12-24;Concluído;Manutenção;210.0;Ana;Fora do SLA
+75;2025-12-25;Em andamento;Incidente;;João;Em andamento
+131;2025-12-25;Aberto;Incidente;;Fernanda;Em andamento
+10;2025-12-26;Concluído;Solicitação;127.0;Fernanda;Fora do SLA
+133;2025-12-26;Aberto;Manutenção;;Carlos;Em andamento
+68;2025-12-26;Aberto;Manutenção;;Carlos;Em andamento
+23;2025-12-27;Concluído;Incidente;20.0;Ana;Dentro do SLA
+137;2025-12-27;Concluído;Incidente;110.0;Fernanda;Dentro do SLA
+211;2025-12-27;Em andamento;Incidente;;Ana;Em andamento
+145;2025-12-27;Em andamento;Incidente;;João;Em andamento
+86;2025-12-28;Aberto;Incidente;;Ana;Em andamento
+177;2025-12-28;Aberto;Manutenção;;Carlos;Em andamento
+113;2025-12-28;Em andamento;Incidente;;Ana;Em andamento
+54;2025-12-28;Aberto;Solicitação;;Ana;Em andamento
+156;2025-12-28;Aberto;Manutenção;;Carlos;Em andamento
+100;2025-12-29;Aberto;Manutenção;;Carlos;Em andamento
+146;2025-12-29;Em andamento;Manutenção;;Carlos;Em andamento
+77;2025-12-30;Em andamento;Incidente;;Carlos;Em andamento
+110;2025-12-30;Aberto;Manutenção;;Ana;Em andamento
+187;2025-12-30;Aberto;Incidente;;João;Em andamento
+216;2025-12-30;Em andamento;Solicitação;;Fernanda;Em andamento
+45;2025-12-31;Concluído;Solicitação;223.0;Carlos;Fora do SLA
+59;2025-12-31;Concluído;Manutenção;87.0;Ana;Dentro do SLA
+33;2026-01-01;Em andamento;Incidente;;Carlos;Em andamento
+231;2026-01-01;Aberto;Manutenção;;Fernanda;Em andamento
+104;2026-01-01;Em andamento;Solicitação;;Carlos;Em andamento
