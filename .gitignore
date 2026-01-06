@@ -18,6 +18,10 @@ build/
 dist/
 *.spec
 dist/Extrator_BI_Pro/_internal
+src/app/build/
+src/app/dist/
+src/app/*.spec
+
 
 # =========================
 # Logs e Dados
