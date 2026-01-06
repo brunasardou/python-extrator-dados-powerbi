@@ -62,6 +62,7 @@ python data/seed_database.py
 
 3️⃣ Iniciar a Aplicação
 ```bash
+cd src
 python -m app.main
 ```
 
