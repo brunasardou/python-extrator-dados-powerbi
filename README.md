@@ -38,17 +38,7 @@ Suporte aos formatos:
 - Tratamento automático de portas padrão
 - Validações de conexão e feedback visual
 
-🏗️ Estrutura do Projeto
-Projeto/
-├── requirements.txt      # Dependências (Pandas, SQLAlchemy, drivers SQL)
-├── extrator.log          # Registro de operações e erros
-├── README.md             # Documentação do projeto
-├── data/                 # Arquivos locais (.db SQLite, se aplicável)
-└── src/app/              # Código-fonte
-    ├── main.py           # Inicialização da aplicação
-    ├── gui_app.py        # Interface gráfica (Tkinter)
-    ├── db.py             # Motor de conexão universal
-    └── exporter.py       # Lógica de análise estatística e exportação
+<img width="578" height="241" alt="image" src="https://github.com/user-attachments/assets/39a115a8-1851-48ad-8f54-e8138ef575e6" />
 
 *Arquitetura modular, facilitando manutenção, evolução e adição de novos recursos.*
 
