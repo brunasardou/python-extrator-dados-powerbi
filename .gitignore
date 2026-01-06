@@ -12,39 +12,37 @@ venv/
 .cache/
 
 # =========================
-# Build / Distribuição
+# PyInstaller
 # =========================
-build/
-dist/
-*.spec
-dist/Extrator_BI_Pro/_internal
-src/app/build/
-src/app/dist/
-src/app/*.spec
-
+**/build/
+**/dist/
+**/*.spec
 
 # =========================
-# Logs e Dados
-# =========================
-*.log
-output/
-data/*.db
-data/*.sqlite
-data/*.sqlite3
-
-# =========================
-# Exportações (BI / Dados)
+# Arquivos gerados (BI / Dados)
 # =========================
 *.csv
 *.parquet
 *.json
+output/
 
 # =========================
-# Segurança
+# Logs
 # =========================
-*.key
-*.pem
-*.crt
+*.log
+
+# =========================
+# SQLite / Bases locais
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# CDC / Checkpoint (REMOVIDOS DA V1)
+# =========================
+**/cdc.py
+**/checkpoint.py
 
 # =========================
 # IDEs
