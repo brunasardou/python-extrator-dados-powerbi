@@ -154,7 +154,7 @@ class DataExtractorApp:
             pady=15,
         )
         self.sql_text.pack(fill="both", expand=True)
-        self.sql_text.insert("1.0", "SELECT * FROM vendas_big")
+        self.sql_text.insert("1.0", "Ex.:SELECT * FROM vendas_big;")
 
         # ================= FOOTER =================
         footer = tk.Frame(content, bg="#F5F7FB", pady=30)
