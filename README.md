@@ -113,6 +113,7 @@ Exemplo de empacotamento utilizando PyInstaller:
   --hidden-import pymysql `
   --hidden-import oracledb `
   --collect-all pandas `
+  --collect-all pyodbc `
   src\app\main.py
 ```
 
