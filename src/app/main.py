@@ -17,7 +17,6 @@ def main():
         root.mainloop()
         
     except ImportError as e:
-        # Em alguns casos e.name vem None, então extraímos do texto do erro
         missing = getattr(e, "name", None)
 
         if not missing:
