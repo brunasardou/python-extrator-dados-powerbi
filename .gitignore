@@ -1,15 +1,55 @@
-# Pastas do Python
+# =========================
+# Python
+# =========================
 __pycache__/
 *.py[cod]
 *$py.class
 venv/
 .env
+.env.*
+.pytest_cache/
+.mypy_cache/
+.cache/
 
+# =========================
+# Build / Distribuição
+# =========================
+build/
+dist/
+*.spec
+dist/Extrator_BI_Pro/_internal
+
+# =========================
 # Logs e Dados
-extrator.log
-data/database.db
+# =========================
+*.log
 output/
+data/*.db
+data/*.sqlite
+data/*.sqlite3
 
-# Configurações de IDE
+# =========================
+# Exportações (BI / Dados)
+# =========================
+*.csv
+*.parquet
+*.json
+
+# =========================
+# Segurança
+# =========================
+*.key
+*.pem
+*.crt
+
+# =========================
+# IDEs
+# =========================
 .vscode/
 .idea/
+
+# =========================
+# Sistema Operacional
+# =========================
+.DS_Store
+Thumbs.db

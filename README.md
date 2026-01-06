@@ -51,7 +51,10 @@ Projeto/
 
 *Arquitetura modular, facilitando manutenção, evolução e adição de novos recursos.*
 
-🚀 Como Executar o Projeto
+## 🖥️ Execução via Terminal
+
+Além da interface gráfica, a aplicação pode ser iniciada diretamente via terminal utilizando o módulo principal do projeto.
+
 1️⃣ Instalar Dependências
 pip install -r requirements.txt
 
@@ -65,7 +68,7 @@ Caso queira testar com dados fictícios:
 python data/seed_database.py
 
 3️⃣ Iniciar a Aplicação
-python src/app/main.py
+python -m app.main
 
 📊 Recomendações de Exportação
 

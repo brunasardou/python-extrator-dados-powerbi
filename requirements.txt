@@ -1,14 +1,23 @@
+# =========================
 # Bibliotecas Base
+# =========================
 pandas
-sqlalchemy //É o tradutor universal que permite o código falar com qualquer banco.
+sqlalchemy  # Tradutor universal entre dialetos SQL
 
+# =========================
 # Drivers para Bancos de Dados
-psycopg2-binary
-pymysql
-pyodbc // Essencial para conectar no Microsoft Azure e SQL Server.
-oracledb // O driver moderno para acessar bancos Oracle.
+# =========================
+psycopg2-binary   # PostgreSQL
+pymysql           # MySQL
+pyodbc            # SQL Server / Azure SQL
+oracledb          # Oracle Database
 
-# Suporte a Arquivos Parquet (Big Data)
-pyarrow // É o motor que faz a mágica de transformar milhões de linhas em um arquivo Parquet levíssimo para o Power BI.
-fastparquet
+# =========================
+# Big Data / Parquet
+# =========================
+pyarrow            # Engine principal para arquivos Parquet
 
+# =========================
+# Utilidades
+# =========================
+python-dotenv      # Variáveis de ambiente (.env)
