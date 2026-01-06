@@ -47,19 +47,23 @@ Suporte aos formatos:
 Além da interface gráfica, a aplicação pode ser iniciada diretamente via terminal utilizando o módulo principal do projeto.
 
 1️⃣ Instalar Dependências
+```bash
 pip install -r requirements.txt
-
+```
 ⚠️ Para alguns bancos (ex: SQL Server, Oracle), é necessário instalar o driver específico no sistema operacional.
 
 
 2️⃣ (Opcional) Preparar Base de Testes
 
 Caso queira testar com dados fictícios:
-
+```bash
 python data/seed_database.py
+```
 
 3️⃣ Iniciar a Aplicação
+```bash
 python -m app.main
+```
 
 📊 Recomendações de Exportação
 
