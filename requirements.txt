@@ -1,3 +1,14 @@
-pandas>=2.0
-python-dateutil
+# Bibliotecas Base
+pandas
+sqlalchemy //É o tradutor universal que permite o código falar com qualquer banco.
+
+# Drivers para Bancos de Dados
+psycopg2-binary
+pymysql
+pyodbc // Essencial para conectar no Microsoft Azure e SQL Server.
+oracledb // O driver moderno para acessar bancos Oracle.
+
+# Suporte a Arquivos Parquet (Big Data)
+pyarrow // É o motor que faz a mágica de transformar milhões de linhas em um arquivo Parquet levíssimo para o Power BI.
+fastparquet
 

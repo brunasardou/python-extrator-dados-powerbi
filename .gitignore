@@ -1,5 +1,15 @@
+# Pastas do Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+venv/
 .env
-output/*.csv
+
+# Logs e Dados
+extrator.log
 data/database.db
+output/
+
+# Configurações de IDE
+.vscode/
+.idea/

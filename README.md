@@ -1,63 +1,87 @@
-# Ferramenta de Extração de Dados para BI
+🚀 Extrator de Dados Universal Pro (BI & Analytics)
+📌 Visão Geral
 
-## Visão Geral
-Este projeto apresenta uma ferramenta desenvolvida em Python para automatizar a extração de dados de um banco relacional e gerar arquivos estruturados para consumo em ferramentas de Business Intelligence, como o Power BI.
+O Extrator de Dados Universal Pro é uma aplicação desenvolvida em Python para automatizar a extração de dados de múltiplos bancos de dados, com foco em Business Intelligence, Analytics e Performance.
 
-O exemplo público utiliza SQLite para facilitar a execução local, mas a lógica de extração é compatível com outros bancos relacionais, como PostgreSQL e MySQL.
+A ferramenta permite conectar-se a diferentes motores SQL, executar consultas personalizadas, aplicar análises estatísticas opcionais e exportar os dados em formatos otimizados para ferramentas como Power BI, Tableau e Excel.
 
----
+🛠️ Solução & Diferenciais
 
-## Problema
-A extração de dados para análises em BI era realizada de forma manual, exigindo consultas recorrentes ao banco de dados e ajustes frequentes nos arquivos, aumentando o risco de inconsistências e retrabalho.
+✔ Motor Universal
+Conexão nativa com:
 
----
+- PostgreSQL
+- MySQL
+- SQL Server
+- Oracle
+- SQLite
 
-## Solução
-Foi desenvolvida uma ferramenta em Python que:
-- Conecta-se ao banco de dados
-- Executa consultas SQL
-- Aplica regras simples de tratamento
-- Gera arquivos CSV padronizados e prontos para consumo no Power BI
+Utilizando SQLAlchemy, garantindo compatibilidade entre dialetos SQL.
 
----
+✔ Extração Inteligente para BI
+Execução direta de queries SQL definidas pelo usuário, mantendo total controle sobre filtros, joins e regras de negócio.
 
-## Tecnologias Utilizadas
-- Python
-- SQL
-- SQLite (exemplo público)
-- Power BI
+✔ Análise Estatística (Opcional)
+Aplicação de Z-Score para identificação automática de anomalias (outliers) em colunas numéricas, auxiliando análises exploratórias e de qualidade de dados.
 
----
+✔ Exportação Otimizada para Big Data
+Suporte aos formatos:
 
-## Estrutura do Projeto
-python-extrator-dados-powerbi/
-├─ data/
-│ ├─ database.db
-│ └─ seed_database.py
-├─ output/
-│ └─ dados_operacionais.csv
-├─ src/
-│ └─ app/
-│ ├─ db.py
-│ ├─ exporter.py
-│ └─ main.py
-├─ requirements.txt
-└─ README.md
+- Parquet (alto desempenho e menor volume)
+- CSV (Excel e análises rápidas)
+- JSON (integrações e APIs)
 
----
+✔ Interface Gráfica Intuitiva
+- Interface desenvolvida em Tkinter, com:
+- Layout limpo e orientado à produtividade
+- Tratamento automático de portas padrão
+- Validações de conexão e feedback visual
 
-## Como Executar o Projeto
+🏗️ Estrutura do Projeto
+Projeto/
+├── requirements.txt      # Dependências (Pandas, SQLAlchemy, drivers SQL)
+├── extrator.log          # Registro de operações e erros
+├── README.md             # Documentação do projeto
+├── data/                 # Arquivos locais (.db SQLite, se aplicável)
+└── src/app/              # Código-fonte
+    ├── main.py           # Inicialização da aplicação
+    ├── gui_app.py        # Interface gráfica (Tkinter)
+    ├── db.py             # Motor de conexão universal
+    └── exporter.py       # Lógica de análise estatística e exportação
 
-### 1. Instalar dependências
-```bash
+*Arquitetura modular, facilitando manutenção, evolução e adição de novos recursos.*
+
+🚀 Como Executar o Projeto
+1️⃣ Instalar Dependências
 pip install -r requirements.txt
+
+⚠️ Para alguns bancos (ex: SQL Server, Oracle), é necessário instalar o driver específico no sistema operacional.
+
+
+2️⃣ (Opcional) Preparar Base de Testes
+
+Caso queira testar com dados fictícios:
+
 python data/seed_database.py
+
+3️⃣ Iniciar a Aplicação
 python src/app/main.py
-```
 
-## Observacoes
+📊 Recomendações de Exportação
 
-- Após a execução, o arquivo dados_operacionais.csv será gerado na pasta output/, pronto para importação no Power BI.
-- O CSV é gerado com separador ; e encoding UTF-8 para compatibilidade com Excel (PT-BR).
-- O projeto possui foco demonstrativo e utiliza dados fictícios.
+- CSV - Ideal para volumes menores ou análises rápidas no Excel.
+- Parquet - Recomendado para grandes volumes de dados e uso em Power BI, oferecendo melhor performance de leitura e atualização.
+- JSON - Indicado para integrações com APIs ou pipelines de dados.
 
+📝 Observações Técnicas
+
+- O projeto utiliza SQLAlchemy para abstração de conexões e compatibilidade entre bancos.
+- A análise de anomalias via Z-Score considera valores com desvio padrão absoluto superior a 2 como potenciais outliers.
+- A filtragem de dados é feita diretamente via SQL, garantindo flexibilidade total ao usuário.
+
+🎯 Quando usar esta ferramenta?
+
+- Extração de dados para Power BI / Tableau
+- Consolidação de dados de múltiplos bancos
+- Análises exploratórias e validação de qualidade
+- Pipelines simples de dados sem necessidade de ETL pesado

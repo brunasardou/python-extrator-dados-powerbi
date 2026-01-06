@@ -1,131 +1,287 @@
 import tkinter as tk
-from tkinter import messagebox, scrolledtext, filedialog
-
-from app.db import connect_postgres, fetch_all
-from app.exporter import rows_to_dicts, save_json
+from tkinter import messagebox, scrolledtext, filedialog, ttk
+from app.db import get_engine
+from app.exporter import processar_e_exportar
 
 
 class DataExtractorApp:
     def __init__(self, master: tk.Tk):
         self.master = master
-        self.master.title("Extrator de Dados → JSON (Power BI)")
-        self.master.geometry("820x720")
+        self.master.title("Data Intelligence Engine")
+        self.master.geometry("1000x800")
+        self.master.configure(bg="#F5F7FB")
+        self.engine = None
+        self._setup_ui()
 
-        self.conn = None
+    def _setup_ui(self):
+        content = tk.Frame(self.master, bg="#F5F7FB", padx=60, pady=30)
+        content.pack(fill="both", expand=True)
 
-        # --- conexão ---
-        self.frame_conn = tk.LabelFrame(master, text="Conexão PostgreSQL", padx=10, pady=10)
-        self.frame_conn.pack(fill="x", padx=16, pady=10)
+        # ================= HEADER =================
+        tk.Label(
+            content,
+            text="Extrator de Dados",
+            bg="#F5F7FB",
+            fg="#111827",
+            font=("Segoe UI", 28, "bold"),
+        ).pack(anchor="w")
 
-        self._build_conn_fields()
+        tk.Label(
+            content,
+            text="Conecte sua fonte de dados e inicie a análise estatística avançada.",
+            bg="#F5F7FB",
+            fg="#6B7280",
+            font=("Segoe UI", 11),
+        ).pack(anchor="w", pady=(5, 40))
 
-        # --- query ---
-        self.frame_sql = tk.LabelFrame(master, text="Query SQL", padx=10, pady=10)
-        self.frame_sql.pack(fill="both", expand=True, padx=16, pady=10)
+        # ================= MOTOR SQL =================
+        motor_frame = tk.Frame(content, bg="#F5F7FB")
+        motor_frame.pack(fill="x", pady=(10, 20))
 
-        self.sql_text = scrolledtext.ScrolledText(self.frame_sql, wrap=tk.WORD, height=14)
-        self.sql_text.pack(fill="both", expand=True)
-        self.sql_text.insert(tk.END, "SELECT 1 AS exemplo;")
+        tk.Label(
+            motor_frame,
+            text="BANCO DE DADOS:",
+            bg="#F5F7FB",
+            fg="#9CA3AF",
+            font=("Segoe UI", 8, "bold"),
+        ).pack(side="left")
 
-        # --- ações ---
-        self.frame_actions = tk.Frame(master, padx=10, pady=10)
-        self.frame_actions.pack(fill="x", padx=16, pady=10)
+        self.db_combobox = ttk.Combobox(
+            motor_frame,
+            values=["PostgreSQL", "MySQL", "SQL Server", "Oracle", "SQLite"],
+            state="readonly",
+            width=20,
+        )
+        self.db_combobox.set("PostgreSQL")
+        self.db_combobox.pack(side="left", padx=15)
 
-        tk.Button(self.frame_actions, text="Testar conexão", command=self.test_connection).pack(side="left", padx=6)
-        tk.Button(self.frame_actions, text="Executar query e salvar JSON", command=self.run_and_export).pack(side="left", padx=6)
-        tk.Button(self.frame_actions, text="Fechar", command=self.on_close).pack(side="right", padx=6)
+        # ================= INPUT GRID =================
+        input_grid = tk.Frame(content, bg="#F5F7FB")
+        input_grid.pack(fill="x", pady=10)
 
-        self.status = tk.Label(master, text="Status: pronto", anchor="w")
-        self.status.pack(fill="x", padx=16, pady=(0, 10))
-
-    def _build_conn_fields(self):
-        labels = ["Host", "Porta", "Database", "Usuário", "Senha"]
-        defaults = {"Host": "localhost", "Porta": "5432", "Database": "postgres", "Usuário": "postgres", "Senha": ""}
+        # a coluna 2 precisa esticar (Database + botão)
+        input_grid.grid_columnconfigure(2, weight=1)
 
         self.entries = {}
-        for i, lab in enumerate(labels):
-            tk.Label(self.frame_conn, text=f"{lab}:").grid(row=i, column=0, sticky="w", pady=3)
-            ent = tk.Entry(self.frame_conn, width=42, show="*" if lab == "Senha" else None)
-            ent.grid(row=i, column=1, sticky="ew", pady=3)
-            ent.insert(0, defaults[lab])
-            self.entries[lab] = ent
 
-        self.frame_conn.grid_columnconfigure(1, weight=1)
+        def create_modern_input(parent, label, row, col, width=25, show=None):
+            frame = tk.Frame(parent, bg="#F5F7FB")
 
-    def _set_status(self, msg: str):
-        self.status.config(text=f"Status: {msg}")
+            sticky = "ew" if col == 2 else "w"
+            frame.grid(row=row, column=col, sticky=sticky, padx=(0, 25), pady=8)
 
-    def _get_conn_params(self):
-        host = self.entries["Host"].get().strip()
-        port = self.entries["Porta"].get().strip()
-        dbname = self.entries["Database"].get().strip()
-        user = self.entries["Usuário"].get().strip()
-        password = self.entries["Senha"].get()  # não strip em senha
-        if not all([host, port, dbname, user]):
-            raise ValueError("Preencha Host, Porta, Database e Usuário.")
-        return host, port, dbname, user, password
+            tk.Label(
+                frame,
+                text=label.upper(),
+                bg="#F5F7FB",
+                fg="#9CA3AA",
+                font=("Segoe UI", 7, "bold"),
+            ).pack(anchor="w")
 
+            ent = tk.Entry(
+                frame,
+                width=width,
+                font=("Segoe UI", 10),
+                show=show,
+                relief="flat",
+                bg="#DEE9F0",
+                highlightthickness=0,
+            )
+
+            fillx = "x" if col == 2 else None
+            ent.pack(pady=(5, 0), ipady=6, ipadx=8, fill=fillx)
+
+            line = tk.Frame(frame, height=1, bg="#E5E7EB")
+            line.pack(fill="x")
+
+            ent.bind("<FocusIn>", lambda e: line.configure(bg="#1E40AF"))
+            ent.bind("<FocusOut>", lambda e: line.configure(bg="#E5E7EB"))
+
+            self.entries[label] = ent
+
+        # -------- Linha 0
+        create_modern_input(input_grid, "Host", 0, 0, 30)
+        create_modern_input(input_grid, "Porta", 0, 1, 10)
+        create_modern_input(input_grid, "Database", 0, 2, 30)
+
+        # -------- Linha 1
+        create_modern_input(input_grid, "Usuário", 1, 0, 30)
+        create_modern_input(input_grid, "Senha", 1, 1, 30, show="*")
+
+        # ================= BOTÃO TESTAR CONEXÃO =================
+        btn_slot = tk.Frame(input_grid, bg="#F5F7FB")
+        btn_slot.grid(row=1, column=2, sticky="ew", padx=(0, 25), pady=8)
+
+        # ocupa espaço do label para alinhar como campo
+        tk.Label(
+            btn_slot,
+            text="",
+            bg="#F5F7FB",
+            font=("Segoe UI", 7, "bold"),
+        ).pack(anchor="w")
+
+        self.btn_test = tk.Button(
+            btn_slot,
+            text="TESTAR CONEXÃO",
+            command=self.test_connection,
+            bg="#395EDA",
+            fg="white",
+            font=("Segoe UI", 9, "bold"),
+            relief="flat",
+            padx=28,
+            pady=10,
+            cursor="hand2",
+        )
+        self.btn_test.pack(anchor="e", pady=(6, 0))
+
+        # ================= SQL =================
+        tk.Label(
+            content,
+            text="INSTRUÇÃO SQL",
+            bg="#F5F7FB",
+            fg="#9CA3AF",
+            font=("Segoe UI", 8, "bold"),
+        ).pack(anchor="w", pady=(25, 8))
+
+        self.sql_text = scrolledtext.ScrolledText(
+            content,
+            height=12,
+            font=("Consolas", 11),
+            relief="flat",
+            bg="#0F172A",
+            fg="#F8FAFC",
+            padx=15,
+            pady=15,
+        )
+        self.sql_text.pack(fill="both", expand=True)
+        self.sql_text.insert("1.0", "SELECT * FROM vendas_big")
+
+        # ================= FOOTER =================
+        footer = tk.Frame(content, bg="#F5F7FB", pady=30)
+        footer.pack(fill="x")
+
+        self.btn_run = tk.Button(
+            footer,
+            text="PROCESSAR E EXPORTAR",
+            command=self.run_process,
+            bg="#395EDA",
+            fg="white",
+            font=("Segoe UI", 9, "bold"),
+            relief="flat",
+            padx=35,
+            pady=12,
+            cursor="hand2",
+        )
+        self.btn_run.pack(side="right")
+
+    # ================= FUNÇÕES =================
     def test_connection(self):
         try:
-            host, port, dbname, user, password = self._get_conn_params()
-            if self.conn:
-                try:
-                    self.conn.close()
-                except Exception:
-                    pass
-                self.conn = None
+            params = {
+                "host": self.entries["Host"].get().strip(),
+                "port": (self.entries["Porta"].get().strip() or "5432"),
+                "database": self.entries["Database"].get().strip(),
+                "user": self.entries["Usuário"].get().strip(),
+                "password": self.entries["Senha"].get().strip(),
+            }
 
-            self._set_status("conectando...")
-            self.conn = connect_postgres(host, port, dbname, user, password)
-            self._set_status("conectado ✅")
-            messagebox.showinfo("Conexão", "Conexão estabelecida com sucesso!")
+            if not params["host"] or not params["database"] or not params["user"]:
+                return messagebox.showwarning("Aviso", "Preencha Host, Database e Usuário.")
+            if not params["password"]:
+                return messagebox.showwarning("Aviso", "Preencha a Senha.")
+
+            self.engine = get_engine(self.db_combobox.get(), params)
+
+            from sqlalchemy import text
+            with self.engine.connect() as conn:
+                conn.execute(text("SELECT 1"))
+
+            messagebox.showinfo("Sucesso", "Conectado com sucesso!")
+
         except Exception as e:
-            self._set_status("erro na conexão ❌")
-            messagebox.showerror("Erro de Conexão", str(e))
+            messagebox.showerror("Falha na ligação", str(e))
 
-    def run_and_export(self):
+    def run_process(self):
+        import pandas as pd
+
+        if not self.engine:
+            return messagebox.showwarning("Aviso", "Por favor, valide a conexão primeiro.")
+
         try:
-            if not self.conn:
-                messagebox.showwarning("Atenção", "Conecte no banco primeiro (Testar conexão).")
-                return
-
             query = self.sql_text.get("1.0", tk.END).strip()
             if not query:
-                messagebox.showwarning("Atenção", "Digite uma query SQL.")
-                return
+                return messagebox.showwarning("Aviso", "Informe uma instrução SQL.")
 
-            self._set_status("executando query...")
-            columns, rows = fetch_all(self.conn, query)
+            df = pd.read_sql_query(query, self.engine)
 
-            if not columns or not rows:
-                self._set_status("query sem resultados")
-                messagebox.showinfo("Resultado", "A query não retornou dados.")
-                return
+            if df.empty:
+                return messagebox.showinfo("Vazio", "Nenhum dado retornado.")
 
-            data = rows_to_dicts(columns, rows)
+            cols_num = df.select_dtypes(include=["number"]).columns.tolist()
+            col_alvo = self._abrir_seletor(cols_num) if cols_num else None
 
             filepath = filedialog.asksaveasfilename(
-                title="Salvar JSON",
-                defaultextension=".json",
-                filetypes=[("JSON", "*.json")],
-                initialfile="dados_extraidos.json",
+                title="Local de Saída",
+                defaultextension=".parquet",
+                filetypes=[
+                    ("Parquet (Performance)", "*.parquet"),
+                    ("CSV (Excel)", "*.csv"),
+                    ("JSON (API/Data Lake)", "*.json"),
+                ],
             )
-            if not filepath:
-                self._set_status("exportação cancelada")
-                return
 
-            save_json(filepath, data)
-            self._set_status("exportado ✅")
-            messagebox.showinfo("Sucesso", f"JSON salvo em:\n{filepath}")
+            if filepath:
+                processar_e_exportar(df, filepath, col_alvo)
+                messagebox.showinfo("Sucesso", "Dados exportados com sucesso!")
 
         except Exception as e:
-            self._set_status("erro ❌")
-            messagebox.showerror("Erro", str(e))
+            messagebox.showerror("Erro SQL", str(e))
 
-    def on_close(self):
-        try:
-            if self.conn:
-                self.conn.close()
-        except Exception:
-            pass
-        self.master.destroy()
+    def _abrir_seletor(self, colunas):
+        if not messagebox.askyesno("Análise", "Aplicar análise de Z-Score?"):
+            return None
+
+        win = tk.Toplevel(self.master)
+        win.title("Seleção")
+        win.geometry("350x180")
+        win.configure(bg="#F5F7FB")
+        win.grab_set()
+
+        tk.Label(
+            win,
+            text="Selecione a coluna:",
+            bg="#F5F7FB",
+            font=("Segoe UI", 10),
+        ).pack(pady=15)
+
+        selecionada = tk.StringVar(value=colunas[0])
+
+        combo = ttk.Combobox(
+            win,
+            values=colunas,
+            state="readonly",
+            width=25,
+            textvariable=selecionada,
+        )
+        combo.pack()
+
+        tk.Button(
+            win,
+            text="Confirmar",
+            command=win.destroy,
+            bg="#395EDA",
+            fg="white",
+            relief="flat",
+            padx=20,
+            pady=8,
+            font=("Segoe UI", 9, "bold"),
+        ).pack(pady=20)
+
+        win.wait_window()
+        return selecionada.get()
+
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = DataExtractorApp(root)
+    root.mainloop()

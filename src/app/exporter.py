@@ -1,52 +1,36 @@
 import pandas as pd
-import os
-from db import get_connection
+import logging
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+def processar_e_exportar(df, filepath, col_zscore=None):
+    # Lógica de Z-Score (Mantida)
+    if col_zscore and col_zscore in df.columns:
+        df[col_zscore] = pd.to_numeric(df[col_zscore], errors='coerce')
+        valores = df[col_zscore].dropna()
+        if not valores.empty:
+            media = valores.mean()
+            desvio = valores.std()
+            if desvio > 0:
+                df[f'zscore_{col_zscore}'] = (df[col_zscore] - media) / desvio
+                df['anomalia_detectada'] = df[f'zscore_{col_zscore}'].apply(
+                    lambda x: 'Sim' if abs(x) > 2 else 'Não'
+                )
 
-def exportar_dados():
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
-
-    query = """
-        SELECT
-            id,
-            data_abertura,
-            status,
-            tipo,
-            tempo_resolucao,
-            responsavel
-        FROM demandas
-    """
-
-    conn = get_connection()
-    df = pd.read_sql_query(query, conn)
-    conn.close()
-
-    # Conversão de data
-    df["data_abertura"] = pd.to_datetime(df["data_abertura"])
-
-    # Coluna de SLA
-    def calcular_sla(row):
-        if row["status"] != "Concluído":
-            return "Em andamento"
-        elif row["tempo_resolucao"] <= 120:
-            return "Dentro do SLA"
+    # Lógica de Exportação Inteligente
+    try:
+        if filepath.lower().endswith('.parquet'):
+            # Formato ideal para Big Data: Comprimido e Rápido
+            df.to_parquet(filepath, engine='pyarrow', compression='snappy', index=False)
+            logging.info(f"Exportação em PARQUET concluída: {filepath}")
+            
+        elif filepath.lower().endswith('.json'):
+            df.to_json(filepath, orient='records', indent=4, force_ascii=False)
+            logging.info(f"Exportação em JSON concluída: {filepath}")
+            
         else:
-            return "Fora do SLA"
-
-    df["sla_status"] = df.apply(calcular_sla, axis=1)
-
-    # Ordenação
-    df = df.sort_values(by="data_abertura")
-
-    output_path = os.path.join(OUTPUT_DIR, "dados_operacionais.csv")
-    df.to_csv(
-        output_path,
-        index=False,
-        sep=";",
-        encoding="utf-8-sig"
-)
-
-    return output_path
+            # Padrão CSV para volumes médios/pequenos
+            df.to_csv(filepath, index=False, sep=';', encoding='utf-8-sig')
+            logging.info(f"Exportação em CSV concluída: {filepath}")
+            
+    except Exception as e:
+        logging.error(f"Erro ao salvar arquivo: {e}")
+        raise e
