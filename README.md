@@ -1,4 +1,5 @@
 🚀 Extrator de Dados Universal Pro (BI & Analytics)
+
 📌 Visão Geral
 
 O Extrator de Dados Universal Pro é uma aplicação desenvolvida em Python para automatizar a extração de dados de múltiplos bancos de dados, com foco em Business Intelligence, Analytics e Performance.
