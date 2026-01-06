@@ -84,3 +84,38 @@ python -m app.main
 - Consolidação de dados de múltiplos bancos
 - Análises exploratórias e validação de qualidade
 - Pipelines simples de dados sem necessidade de ETL pesado
+
+## 🖥️ Distribuição Desktop (Opcional)
+
+O projeto também pode ser empacotado como uma aplicação desktop executável, permitindo o uso sem necessidade de Python instalado no ambiente.
+
+Esse modo é indicado para:
+- Usuários finais
+- Ambientes corporativos restritos
+- Demonstrações e provas de conceito
+
+A geração do executável é realizada utilizando ferramentas de empacotamento Python (ex: PyInstaller).
+
+## 🖥️ Geração de Executável Desktop (Avançado)
+
+Opcionalmente, a aplicação pode ser empacotada como um executável desktop para uso sem dependência de Python instalado.
+
+Exemplo de empacotamento utilizando PyInstaller:
+
+```powershell
+.\.venv\Scripts\python.exe -m PyInstaller `
+  --noconsole `
+  --onedir `
+  --clean `
+  --name Extrator_BI_Pro `
+  --paths src `
+  --hidden-import pyodbc `
+  --hidden-import pymysql `
+  --hidden-import oracledb `
+  --collect-all pandas `
+  src\app\main.py
+```
+
+> Nota: o executável não é versionado no repositório e pode ser gerado a partir do código-fonte conforme necessidade.
+
+
